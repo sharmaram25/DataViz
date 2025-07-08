@@ -559,7 +559,6 @@ This project is released under the MIT License, promoting open-source collaborat
 *Data Scientist & Software Architect*
 
 🎯 **Specialization**: Advanced Analytics, Machine Learning, Data Visualization  
-🏢 **Experience**: 5+ years in enterprise data solutions  
 🌟 **Passion**: Democratizing data science through intuitive tools  
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/ramsharma)
