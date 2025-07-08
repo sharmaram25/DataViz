@@ -1,0 +1,51 @@
+employee_id,name,age,department,salary,experience_years,education,gender,performance_score,bonus,city,join_date,is_remote
+E001,John Smith,29,IT,75000,5,Bachelor,Male,8.5,5000,New York,2019-03-15,TRUE
+E002,Sarah Johnson,34,HR,68000,8,Master,Female,9.2,7500,San Francisco,2016-07-22,FALSE
+E003,Mike Davis,41,Finance,85000,12,Bachelor,Male,7.8,4200,Chicago,2012-01-10,FALSE
+E004,Emily Brown,26,Marketing,58000,3,Bachelor,Female,8.9,3800,Austin,2021-09-05,TRUE
+E005,David Wilson,37,IT,92000,10,Master,Male,9.5,8500,Seattle,2014-11-18,TRUE
+E006,Lisa Garcia,31,Operations,72000,7,Bachelor,Female,8.1,5200,Los Angeles,2017-04-12,FALSE
+E007,Robert Taylor,45,Finance,98000,15,MBA,Male,8.7,9200,Boston,2009-02-28,FALSE
+E008,Jennifer Martinez,28,IT,71000,4,Bachelor,Female,8.3,4600,Denver,2020-06-14,TRUE
+E009,William Anderson,39,HR,74000,11,Master,Male,7.9,5800,Miami,2013-08-20,FALSE
+E010,Amanda Thomas,33,Marketing,64000,6,Bachelor,Female,9.1,6200,Phoenix,2018-12-03,TRUE
+E011,Christopher Lee,42,Operations,88000,14,Master,Male,8.6,7800,Portland,2010-05-17,FALSE
+E012,Jessica White,30,IT,78000,6,Bachelor,Female,8.8,5600,Dallas,2018-01-25,TRUE
+E013,Daniel Harris,36,Finance,81000,9,Bachelor,Male,7.5,4800,San Diego,2015-10-08,FALSE
+E014,Nicole Clark,27,Marketing,59000,3,Bachelor,Female,8.4,3900,Nashville,2021-03-11,TRUE
+E015,Matthew Lewis,44,HR,76000,13,Master,Male,8.0,6400,Charlotte,2011-09-30,FALSE
+E016,Ashley Walker,32,IT,84000,8,Master,Female,9.3,7200,Indianapolis,2016-12-05,TRUE
+E017,Joshua Hall,38,Operations,79000,10,Bachelor,Male,8.2,5400,Columbus,2014-07-19,FALSE
+E018,Megan Allen,29,Finance,73000,5,Bachelor,Female,8.7,5000,Jacksonville,2019-04-02,TRUE
+E019,Andrew Young,35,Marketing,66000,7,Bachelor,Male,7.6,4300,Memphis,2017-11-14,FALSE
+E020,Stephanie King,40,HR,82000,12,Master,Female,9.0,7600,Baltimore,2012-08-27,FALSE
+E021,Kevin Wright,31,IT,77000,6,Bachelor,Male,8.5,5300,Milwaukee,2018-05-09,TRUE
+E022,Rachel Green,26,Operations,61000,3,Bachelor,Female,8.1,3700,Kansas City,2021-01-18,FALSE
+E023,Brian Lopez,43,Finance,95000,16,MBA,Male,8.9,8900,Atlanta,2008-03-24,FALSE
+E024,Heather Hill,34,Marketing,69000,8,Master,Female,8.6,6000,Raleigh,2016-10-11,TRUE
+E025,Jason Scott,37,IT,89000,11,Master,Male,9.1,7900,Tampa,2013-12-06,TRUE
+E026,Kimberly Adams,30,HR,70000,6,Bachelor,Female,8.3,5100,Pittsburgh,2018-07-23,FALSE
+E027,Eric Baker,41,Operations,86000,13,Bachelor,Male,7.8,6700,Cincinnati,2011-04-15,FALSE
+E028,Crystal Nelson,28,Finance,65000,4,Bachelor,Female,8.4,4100,Orlando,2020-09-01,TRUE
+E029,Ryan Carter,36,Marketing,71000,9,Master,Male,8.0,5500,Cleveland,2015-02-17,FALSE
+E030,Vanessa Mitchell,33,IT,81000,7,Bachelor,Female,9.2,6800,Las Vegas,2017-06-30,TRUE
+E031,Gregory Perez,39,HR,75000,10,Master,Male,8.1,5900,Sacramento,2014-01-13,FALSE
+E032,Tiffany Roberts,27,Operations,63000,3,Bachelor,Female,8.7,4000,New Orleans,2021-05-26,TRUE
+E033,Steven Turner,45,Finance,99000,17,MBA,Male,9.4,9500,Oklahoma City,2007-11-08,FALSE
+E034,Samantha Phillips,35,Marketing,68000,8,Bachelor,Female,8.2,5700,Louisville,2016-03-21,TRUE
+E035,Marcus Campbell,32,IT,83000,7,Master,Male,8.8,6500,Virginia Beach,2017-08-14,TRUE
+E036,Brittany Parker,29,HR,72000,5,Bachelor,Female,8.5,4900,Tucson,2019-10-02,FALSE
+E037,Jonathan Evans,38,Operations,87000,12,Master,Male,7.9,7100,Fresno,2012-06-18,FALSE
+E038,Melissa Edwards,31,Finance,76000,6,Bachelor,Female,8.6,5400,Long Beach,2018-02-07,TRUE
+E039,Timothy Collins,40,Marketing,74000,11,Bachelor,Male,8.3,6100,Mesa,2013-09-25,FALSE
+E040,Denise Stewart,34,IT,85000,9,Master,Female,9.0,7300,Colorado Springs,2015-12-11,TRUE
+E041,Jeremy Sanchez,37,HR,78000,10,Bachelor,Male,8.1,6000,Omaha,2014-05-04,FALSE
+E042,Jacqueline Morris,26,Operations,60000,2,,Female,8.4,3600,Wichita,2022-01-20,TRUE
+E043,Aaron Rogers,42,Finance,91000,14,Master,Male,8.7,8200,Arlington,2010-07-12,FALSE
+E044,Catherine Reed,30,Marketing,67000,6,Bachelor,Female,8.0,4800,Bakersfield,2018-11-28,TRUE
+E045,Nathan Cook,35,IT,80000,8,Bachelor,Male,8.9,6400,Tampa,2016-09-16,TRUE
+E046,Lori Bailey,28,HR,69000,4,Master,Female,8.2,4700,Aurora,2020-04-22,FALSE
+E047,Carl Rivera,44,Operations,88000,15,Bachelor,Male,7.7,7400,Anaheim,2009-12-14,FALSE
+E048,Monica Cooper,32,Finance,77000,7,Bachelor,Female,8.5,5800,Santa Ana,2017-01-31,TRUE
+E049,Jeffrey Richardson,39,Marketing,73000,10,Master,Male,8.1,5900,St. Louis,2014-08-07,FALSE
+E050,Deborah Cox,36,IT,82000,9,Bachelor,Female,9.1,7000,Riverside,2015-11-19,TRUE

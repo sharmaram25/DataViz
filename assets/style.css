@@ -1,0 +1,350 @@
+/* DataViz Custom Styles - Steel-toned minimalist theme */
+
+/* Global theme variables */
+:root {
+    --primary-steel: #2c3e50;
+    --secondary-steel: #34495e;
+    --accent-blue: #3498db;
+    --accent-red: #e74c3c;
+    --accent-green: #27ae60;
+    --accent-orange: #f39c12;
+    --light-gray: #ecf0f1;
+    --medium-gray: #bdc3c7;
+    --dark-gray: #7f8c8d;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Main container styling */
+.main .block-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Sidebar styling */
+.css-1d391kg {
+    background: linear-gradient(135deg, var(--primary-steel), var(--secondary-steel));
+}
+
+.css-1lcbmhc .css-1outpf7 {
+    background: linear-gradient(135deg, var(--primary-steel), var(--secondary-steel));
+    border-right: 3px solid var(--dark-gray);
+}
+
+/* Sidebar content */
+.css-1lcbmhc h1, .css-1lcbmhc h2, .css-1lcbmhc h3 {
+    color: var(--light-gray) !important;
+    text-align: center;
+    font-weight: 600;
+}
+
+.css-1lcbmhc .markdown-text-container {
+    color: var(--medium-gray) !important;
+}
+
+/* Header styling */
+h1 {
+    color: var(--primary-steel);
+    font-family: 'Arial', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2, h3 {
+    color: var(--secondary-steel);
+    font-family: 'Arial', sans-serif;
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-blue);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Metrics styling */
+.metric-container {
+    background: linear-gradient(135deg, var(--secondary-steel), var(--primary-steel));
+    color: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+    border-left: 4px solid var(--accent-blue);
+    box-shadow: 0 4px 8px var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.metric-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--shadow);
+}
+
+/* Button styling */
+.stButton > button {
+    background: linear-gradient(135deg, var(--accent-blue), #2980b9);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.stButton > button:hover {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Upload widget styling */
+.css-1cpxqw2 {
+    background: rgba(52, 73, 94, 0.1);
+    border: 2px dashed var(--dark-gray);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.css-1cpxqw2:hover {
+    border-color: var(--accent-blue);
+    background: rgba(52, 152, 219, 0.1);
+}
+
+/* DataFrames styling */
+.dataframe {
+    border: 1px solid var(--medium-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px var(--shadow);
+}
+
+.dataframe th {
+    background: linear-gradient(135deg, var(--secondary-steel), var(--primary-steel));
+    color: var(--white);
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.dataframe td {
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.dataframe tr:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.dataframe tr:hover {
+    background: #e3f2fd;
+}
+
+/* Alert styling */
+.stAlert {
+    border-radius: 8px;
+    border-left: 4px solid;
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+.stAlert[data-baseweb="notification"] {
+    background: var(--light-gray);
+}
+
+/* Success alerts */
+.stSuccess {
+    border-left-color: var(--accent-green);
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+}
+
+/* Warning alerts */
+.stWarning {
+    border-left-color: var(--accent-orange);
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    color: #856404;
+}
+
+/* Error alerts */
+.stError {
+    border-left-color: var(--accent-red);
+    background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+    color: #721c24;
+}
+
+/* Info alerts */
+.stInfo {
+    border-left-color: var(--accent-blue);
+    background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+    color: #0c5460;
+}
+
+/* Tab styling */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0;
+    background: var(--light-gray);
+    border-radius: 8px;
+    padding: 0.25rem;
+}
+
+.stTabs [data-baseweb="tab"] {
+    color: var(--secondary-steel);
+    background: transparent;
+    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+    background: var(--white);
+    color: var(--primary-steel);
+}
+
+.stTabs [aria-selected="true"] {
+    background: var(--white);
+    color: var(--primary-steel);
+    box-shadow: 0 2px 4px var(--shadow);
+}
+
+/* Selectbox styling */
+.stSelectbox > div > div {
+    background: var(--white);
+    border: 2px solid var(--medium-gray);
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.stSelectbox > div > div:focus-within {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Multiselect styling */
+.stMultiSelect > div > div {
+    background: var(--white);
+    border: 2px solid var(--medium-gray);
+    border-radius: 8px;
+}
+
+.stMultiSelect > div > div:focus-within {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* File uploader styling */
+.stFileUploader > div {
+    background: var(--white);
+    border: 2px dashed var(--medium-gray);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stFileUploader > div:hover {
+    border-color: var(--accent-blue);
+    background: rgba(52, 152, 219, 0.05);
+}
+
+/* Progress bar styling */
+.stProgress .css-1cpxqw2 {
+    background: var(--light-gray);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stProgress .css-1cpxqw2 > div {
+    background: linear-gradient(135deg, var(--accent-blue), #2980b9);
+    border-radius: 10px;
+}
+
+/* Spinner styling */
+.stSpinner {
+    color: var(--accent-blue);
+}
+
+/* Custom plotly chart container */
+.plotly-chart-container {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 8px var(--shadow);
+    margin: 1rem 0;
+}
+
+/* Hide sidebar in exploration mode */
+.exploration-mode .css-1lcbmhc {
+    display: none !important;
+}
+
+.exploration-mode .css-1d391kg {
+    margin-left: 0 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main .block-container {
+        padding: 1rem;
+    }
+    
+    .metric-container {
+        padding: 1rem;
+    }
+    
+    .stButton > button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--medium-gray);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-gray);
+}
