@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Streamlit
+.streamlit/*
+!.streamlit/config.toml
+!.streamlit/secrets.toml.example
+
+# Data
+*.csv
+*.xlsx
+*.json
+*.parquet
+*.pickle
+*.pkl
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual Env
+venv/
+env/
+.env

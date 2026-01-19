@@ -1,0 +1,163 @@
+/* Global Imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Base Styles */
+html,
+body,
+[class*="css"] {
+    font-family: 'Inter', sans-serif;
+    color: #334155;
+    /* Slate-700 */
+}
+
+/* Background & Main Layout */
+.stApp {
+    background-color: #F1F5F9;
+    /* Slate-100 */
+    background-image:
+        radial-gradient(at 0% 0%, hsla(217, 91%, 93%, 1) 0, transparent 50%),
+        radial-gradient(at 100% 0%, hsla(225, 89%, 94%, 1) 0, transparent 50%);
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3 {
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    /* Slate-900 */
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glassmorphism Cards */
+div.css-1r6slb0,
+div.stDataFrame,
+div.stPlotlyChart,
+div[data-testid="stMetricValue"] {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    /* FIX: Prevent overflow */
+    max-width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
+}
+
+div.css-1r6slb0:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+}
+
+/* Sidebar Styling */
+section[data-testid="stSidebar"] {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
+    box-shadow: none;
+}
+
+div[data-testid="stSidebarNav"] {
+    padding-top: 2rem;
+}
+
+/* Metrics Styling */
+div[data-testid="stMetricValue"] {
+    font-size: 2rem !important;
+    color: #2563EB !important;
+    /* Blue-600 */
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+div[data-testid="stMetricLabel"] {
+    font-weight: 500;
+    color: #64748B;
+}
+
+/* Inputs & Selectboxes */
+.stSelectbox div[data-baseweb="select"]>div {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+}
+
+/* Buttons */
+.stButton>button {
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.stButton>button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+/* Custom File Uploader */
+div[data-testid="stFileUploader"] {
+    padding: 3rem 2rem;
+    border: 2px dashed #94A3B8;
+    border-radius: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+}
+
+div[data-testid="stFileUploader"]:hover {
+    border-color: #2563EB;
+    background-color: rgba(239, 246, 255, 0.5);
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+    gap: 2rem;
+    background-color: transparent;
+}
+
+.stTabs [data-baseweb="tab"] {
+    height: 3rem;
+    white-space: pre-wrap;
+    border-radius: 0px;
+    color: #64748B;
+    font-weight: 500;
+}
+
+.stTabs [aria-selected="true"] {
+    color: #2563EB;
+    border-bottom: 2px solid #2563EB;
+}
+
+/* Clean up Streamlit chrome */
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+/* Sidebar Toggle Fix: High Z-Index to ensure clickability */
+header[data-testid="stHeader"] {
+    background-color: transparent !important;
+    z-index: 1000 !important;
+    visibility: visible !important;
+}
+
+/* Ensure the decoration line doesn't look weird if header is transparent */
+div[data-testid="stDecoration"] {
+    visibility: hidden;
+}
