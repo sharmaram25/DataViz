@@ -24,3 +24,7 @@ Thumbs.db
 venv/
 env/
 .env
+
+# Local virtualenv
+.venv/
+.pytest_cache/

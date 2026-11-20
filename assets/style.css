@@ -1,163 +1,232 @@
-/* Global Imports */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+/* ==========================================================================
+   DataViz component styles.
+   Base theme (fonts, colours, radii, sidebar) lives in .streamlit/config.toml;
+   this file styles DataViz's own components (.dv-*) plus a few layout touches.
+   ========================================================================== */
 
-/* Base Styles */
-html,
-body,
-[class*="css"] {
-    font-family: 'Inter', sans-serif;
-    color: #334155;
-    /* Slate-700 */
+:root {
+  --dv-ink: #1b1b1a;
+  --dv-ink-2: #52514e;
+  --dv-muted: #6b6a65;      /* 5.0:1 on canvas, 5.4:1 on white (WCAG AA) */
+  --dv-hairline: #e1e0d9;
+  --dv-surface: #ffffff;
+  --dv-canvas: #f7f7f5;
+  --dv-brand: #1f6bcf;
+  --dv-brand-2: #2a78d6;
+  --dv-brand-soft: #e8f1fc;
+  --dv-navy: #0f1c2e;
+
+  /* status — meaning only, always paired with icon + label */
+  --dv-good: #0ca30c;      --dv-good-ink: #006300;   --dv-good-bg: #e9f6e9;
+  --dv-warn: #fab219;      --dv-warn-ink: #7a5200;   --dv-warn-bg: #fff6df;
+  --dv-serious: #ec835a;   --dv-serious-ink: #9c3d12;
+  --dv-crit: #d03b3b;      --dv-crit-ink: #a82626;   --dv-crit-bg: #fcebeb;
+  --dv-info: #2a78d6;      --dv-info-ink: #1c5cab;   --dv-info-bg: #eaf2fd;
+
+  /* identity colours for column kinds (categorical slots) */
+  --dv-k-num: #2a78d6;  --dv-k-cat: #eb6834;  --dv-k-date: #1baf7a;
+  --dv-k-text: #6250d6; --dv-k-bool: #e87ba4;
+
+  --dv-shadow: 0 1px 2px rgba(15, 28, 46, .04), 0 4px 14px rgba(15, 28, 46, .05);
+  --dv-shadow-lg: 0 2px 6px rgba(15, 28, 46, .06), 0 14px 34px rgba(15, 28, 46, .09);
 }
 
-/* Background & Main Layout */
-.stApp {
-    background-color: #F1F5F9;
-    /* Slate-100 */
-    background-image:
-        radial-gradient(at 0% 0%, hsla(217, 91%, 93%, 1) 0, transparent 50%),
-        radial-gradient(at 100% 0%, hsla(225, 89%, 94%, 1) 0, transparent 50%);
-}
+/* ---- Layout ------------------------------------------------------------- */
+.block-container { padding-top: 2.2rem; padding-bottom: 4rem; max-width: 1480px; }
+#MainMenu, footer { visibility: hidden; }
+div[data-testid="stDecoration"] { display: none; }
+header[data-testid="stHeader"] { background: transparent; }
 
-/* Typography Overrides */
-h1,
-h2,
-h3 {
-    font-weight: 700 !important;
-    color: #0F172A !important;
-    /* Slate-900 */
-    letter-spacing: -0.02em;
+/* Sidebar polish */
+section[data-testid="stSidebar"] hr { border-color: #24384f; margin: .9rem 0; }
+section[data-testid="stSidebar"] [data-testid="stRadio"] label {
+  padding: .42rem .7rem; border-radius: 8px; width: 100%; transition: background .15s ease;
 }
-
-h1 {
-    font-size: 2.5rem !important;
-    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+section[data-testid="stSidebar"] [data-testid="stRadio"] label:hover { background: #172a42; }
+section[data-testid="stSidebar"] [data-testid="stRadio"] label:has(input:checked) {
+  background: linear-gradient(90deg, rgba(106,168,245,.22), rgba(106,168,245,.06));
+  box-shadow: inset 3px 0 0 #6aa8f5;
 }
-
-/* Glassmorphism Cards */
-div.css-1r6slb0,
-div.stDataFrame,
-div.stPlotlyChart,
-div[data-testid="stMetricValue"] {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 16px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    padding: 1.5rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-    /* FIX: Prevent overflow */
-    max-width: 100%;
-    overflow-x: auto;
-    box-sizing: border-box;
-}
-
-div.css-1r6slb0:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-}
-
-/* Sidebar Styling */
-section[data-testid="stSidebar"] {
-    background-color: #FFFFFF;
-    border-right: 1px solid #E2E8F0;
-    box-shadow: none;
-}
-
-div[data-testid="stSidebarNav"] {
-    padding-top: 2rem;
-}
-
-/* Metrics Styling */
-div[data-testid="stMetricValue"] {
-    font-size: 2rem !important;
-    color: #2563EB !important;
-    /* Blue-600 */
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-}
-
-div[data-testid="stMetricLabel"] {
-    font-weight: 500;
-    color: #64748B;
-}
-
-/* Inputs & Selectboxes */
-.stSelectbox div[data-baseweb="select"]>div {
-    background-color: #FFFFFF;
-    border-radius: 8px;
-    border: 1px solid #E2E8F0;
-}
-
-/* Buttons */
-.stButton>button {
-    border-radius: 8px;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border: none;
-    transition: all 0.2s ease;
-}
-
-.stButton>button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
-}
-
-/* Custom File Uploader */
-div[data-testid="stFileUploader"] {
-    padding: 3rem 2rem;
-    border: 2px dashed #94A3B8;
-    border-radius: 16px;
-    background-color: rgba(255, 255, 255, 0.5);
-    transition: all 0.3s ease;
-}
-
-div[data-testid="stFileUploader"]:hover {
-    border-color: #2563EB;
-    background-color: rgba(239, 246, 255, 0.5);
-}
+section[data-testid="stSidebar"] [data-testid="stRadio"] [role="radiogroup"] { gap: 2px; }
 
 /* Tabs */
-.stTabs [data-baseweb="tab-list"] {
-    gap: 2rem;
-    background-color: transparent;
-}
+.stTabs [data-baseweb="tab-list"] { gap: .25rem; border-bottom: 1px solid var(--dv-hairline); }
+.stTabs [data-baseweb="tab"] { padding: .55rem .9rem; font-weight: 550; color: var(--dv-ink-2); border-radius: 8px 8px 0 0; }
+.stTabs [data-baseweb="tab"]:hover { background: rgba(31,107,207,.06); color: var(--dv-brand); }
+.stTabs [aria-selected="true"] { color: var(--dv-brand) !important; }
 
-.stTabs [data-baseweb="tab"] {
-    height: 3rem;
-    white-space: pre-wrap;
-    border-radius: 0px;
-    color: #64748B;
-    font-weight: 500;
+/* Bordered containers become cards */
+div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > div[data-testid="stVerticalBlock"]) {
+  background: var(--dv-surface);
 }
+div[data-testid="stPlotlyChart"] {
+  background: var(--dv-surface); border: 1px solid var(--dv-hairline);
+  border-radius: 14px; padding: .6rem .7rem .3rem; box-shadow: var(--dv-shadow);
+}
+[data-testid="stMain"] div[data-testid="stExpander"] details { background: var(--dv-surface); border-radius: 12px; }
+/* Sidebar expanders stay dark so light sidebar text keeps its contrast */
+section[data-testid="stSidebar"] div[data-testid="stExpander"] details {
+  background: #172a42; border: 1px solid #2c4562; border-radius: 12px;
+}
+section[data-testid="stSidebar"] div[data-testid="stExpander"] summary,
+section[data-testid="stSidebar"] div[data-testid="stExpander"] summary p { color: #dfe6ef !important; font-weight: 600; }
+section[data-testid="stSidebar"] div[data-testid="stExpander"] summary:hover p { color: #ffffff !important; }
+div[data-testid="stMetric"] {
+  background: var(--dv-surface); border: 1px solid var(--dv-hairline); border-radius: 12px;
+  padding: .8rem 1rem; box-shadow: var(--dv-shadow);
+}
+div[data-testid="stMetricLabel"] p { color: var(--dv-ink-2); font-weight: 550; }
 
-.stTabs [aria-selected="true"] {
-    color: #2563EB;
-    border-bottom: 2px solid #2563EB;
+/* File uploader dropzone */
+section[data-testid="stFileUploaderDropzone"] {
+  border: 2px dashed #b9c9de; background: linear-gradient(180deg, #fbfcfe, #f3f7fc);
+  border-radius: 16px; padding: 1.6rem; transition: all .2s ease;
 }
+section[data-testid="stFileUploaderDropzone"]:hover { border-color: var(--dv-brand); background: var(--dv-brand-soft); }
 
-/* Clean up Streamlit chrome */
-#MainMenu {
-    visibility: hidden;
-}
+/* Buttons */
+.stButton > button, .stDownloadButton > button { font-weight: 600; transition: transform .12s ease, box-shadow .12s ease; }
+.stButton > button:hover, .stDownloadButton > button:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(31,107,207,.18); }
 
-footer {
-    visibility: hidden;
+/* ---- Brand / sidebar header ------------------------------------------------ */
+.dv-brand { display: flex; align-items: center; gap: .65rem; padding: .2rem 0 .3rem; }
+.dv-logo {
+  width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;
+  background: linear-gradient(135deg, #3987e5 0%, #1c5cab 60%, #6250d6 100%);
+  box-shadow: 0 6px 16px rgba(57,135,229,.35); flex: none;
 }
+.dv-brand-name { font-weight: 800; font-size: 1.22rem; color: #fff; letter-spacing: -.02em; line-height: 1.1; }
+.dv-brand-tag { font-size: .74rem; color: #8ea3bd; letter-spacing: .02em; }
+.dv-ds-card {
+  background: #172a42; border: 1px solid #24384f; border-radius: 12px; padding: .7rem .8rem; margin: .4rem 0 .2rem;
+}
+.dv-ds-name { color: #fff; font-weight: 650; font-size: .9rem; word-break: break-all; }
+.dv-ds-meta { color: #8ea3bd; font-size: .78rem; margin-top: .15rem; }
+.dv-ds-filter { color: #ffd27a; font-size: .78rem; margin-top: .3rem; }
+.dv-side-label { color: #8ea3bd; font-size: .7rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; margin: .6rem 0 .3rem; }
 
-/* Sidebar Toggle Fix: High Z-Index to ensure clickability */
-header[data-testid="stHeader"] {
-    background-color: transparent !important;
-    z-index: 1000 !important;
-    visibility: visible !important;
+/* ---- Page header ---------------------------------------------------------- */
+.dv-page-head { display: flex; align-items: flex-start; gap: .9rem; margin: 0 0 1.2rem; }
+.dv-page-icon {
+  width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; font-size: 1.35rem;
+  background: var(--dv-brand-soft); border: 1px solid #d5e5fa; flex: none;
 }
+.dv-page-title { font-size: 1.75rem; font-weight: 800; letter-spacing: -.025em; color: var(--dv-ink); line-height: 1.15; margin: 0; }
+.dv-page-sub { color: var(--dv-ink-2); font-size: .96rem; margin-top: .2rem; }
 
-/* Ensure the decoration line doesn't look weird if header is transparent */
-div[data-testid="stDecoration"] {
-    visibility: hidden;
+/* ---- Hero (landing) ------------------------------------------------------- */
+.dv-hero {
+  position: relative; overflow: hidden; border-radius: 22px; padding: 2.6rem 2.6rem 2.2rem; margin-bottom: 1.4rem;
+  background: radial-gradient(1100px 380px at 0% 0%, rgba(42,120,214,.55) 0%, transparent 55%),
+              radial-gradient(900px 380px at 100% 0%, rgba(98,80,214,.6) 0%, transparent 55%),
+              linear-gradient(135deg, #0f1c2e 0%, #13263f 100%);
+  color: #fff; box-shadow: var(--dv-shadow-lg);
 }
+.dv-hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 34px 34px; mask-image: linear-gradient(180deg, rgba(0,0,0,.6), transparent 85%);
+}
+.dv-hero-eyebrow {
+  display: inline-flex; gap: .4rem; align-items: center; font-size: .78rem; font-weight: 650; letter-spacing: .06em;
+  text-transform: uppercase; color: #cfe2fb; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+  padding: .3rem .7rem; border-radius: 999px;
+}
+.dv-hero-title {
+  position: relative; z-index: 1; font-size: 2.9rem; font-weight: 800; letter-spacing: -.035em; margin: .9rem 0 .5rem;
+  color: #ffffff; -webkit-text-fill-color: #ffffff; line-height: 1.05;
+}
+.dv-hero-title span { background: linear-gradient(90deg, #b9d6fb, #d9d2ff); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; }
+.dv-hero p { position: relative; z-index: 1; }
+.dv-hero p { color: #c4d2e3; font-size: 1.08rem; max-width: 760px; margin: 0; }
+.dv-hero-stats { display: flex; gap: 2rem; margin-top: 1.6rem; flex-wrap: wrap; position: relative; z-index: 1; }
+.dv-hero-stat b { display: block; font-size: 1.45rem; color: #fff; font-weight: 800; }
+.dv-hero-stat span { color: #9fb3cb; font-size: .82rem; }
+
+.dv-feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: .8rem; margin: .4rem 0 1rem; }
+.dv-feature {
+  background: var(--dv-surface); border: 1px solid var(--dv-hairline); border-radius: 14px; padding: 1rem 1.05rem;
+  box-shadow: var(--dv-shadow); transition: transform .15s ease, box-shadow .15s ease;
+}
+.dv-feature:hover { transform: translateY(-2px); box-shadow: var(--dv-shadow-lg); }
+.dv-feature-icon { font-size: 1.3rem; }
+.dv-feature-title { font-weight: 700; color: var(--dv-ink); margin: .35rem 0 .15rem; font-size: .95rem; }
+.dv-feature-text { color: var(--dv-ink-2); font-size: .84rem; line-height: 1.4; }
+
+/* ---- Stat tiles ------------------------------------------------------------ */
+.dv-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: .75rem; margin: .2rem 0 1.1rem; }
+.dv-tile {
+  position: relative; background: var(--dv-surface); border: 1px solid var(--dv-hairline); border-radius: 14px;
+  padding: .85rem 1rem .8rem; box-shadow: var(--dv-shadow); overflow: hidden;
+}
+.dv-tile::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--accent, var(--dv-brand-2)); }
+.dv-tile-label { color: var(--dv-ink-2); font-size: .78rem; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; }
+.dv-tile-value { color: var(--dv-ink); font-size: 1.65rem; font-weight: 800; letter-spacing: -.02em; margin-top: .15rem; line-height: 1.15; }
+.dv-tile-sub { font-size: .8rem; margin-top: .15rem; color: var(--dv-muted); }
+.dv-tile.good  { --accent: var(--dv-good); }  .dv-tile.good  .dv-tile-sub { color: var(--dv-good-ink); }
+.dv-tile.warn  { --accent: var(--dv-warn); }  .dv-tile.warn  .dv-tile-sub { color: var(--dv-warn-ink); }
+.dv-tile.crit  { --accent: var(--dv-crit); }  .dv-tile.crit  .dv-tile-sub { color: var(--dv-crit-ink); }
+.dv-tile.neutral { --accent: #c3c2b7; }
+
+/* ---- Badges & chips ----------------------------------------------------------- */
+.dv-badge {
+  display: inline-flex; align-items: center; gap: .3rem; font-size: .76rem; font-weight: 650;
+  padding: .16rem .55rem; border-radius: 999px; border: 1px solid transparent; white-space: nowrap;
+}
+.dv-badge.good { background: var(--dv-good-bg); color: var(--dv-good-ink); border-color: #c4e6c4; }
+.dv-badge.warn { background: var(--dv-warn-bg); color: var(--dv-warn-ink); border-color: #f5dc9c; }
+.dv-badge.crit { background: var(--dv-crit-bg); color: var(--dv-crit-ink); border-color: #f1c2c2; }
+.dv-badge.info { background: var(--dv-info-bg); color: var(--dv-info-ink); border-color: #c9ddf7; }
+.dv-badge.neutral { background: #f1f0ec; color: var(--dv-ink-2); border-color: var(--dv-hairline); }
+
+.dv-chip {
+  display: inline-flex; align-items: center; gap: .35rem; font-size: .76rem; font-weight: 600; color: var(--dv-ink-2);
+  background: #fff; border: 1px solid var(--dv-hairline); padding: .14rem .55rem .14rem .45rem; border-radius: 999px; margin: 0 .3rem .3rem 0;
+}
+.dv-chip i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; background: var(--c); }
+
+/* ---- Insight cards ------------------------------------------------------------ */
+.dv-insight {
+  display: flex; gap: .75rem; align-items: flex-start; background: var(--dv-surface); border: 1px solid var(--dv-hairline);
+  border-left: 4px solid var(--c); border-radius: 12px; padding: .7rem .9rem; margin-bottom: .55rem; box-shadow: var(--dv-shadow);
+}
+.dv-insight-icon { width: 28px; height: 28px; flex: none; border-radius: 8px; display: grid; place-items: center; background: var(--bg); color: var(--ink); font-size: .9rem; font-weight: 800; }
+.dv-insight-title { font-weight: 650; color: var(--dv-ink); font-size: .92rem; }
+.dv-insight-text { color: var(--dv-ink-2); font-size: .85rem; margin-top: .1rem; }
+.dv-insight.crit { --c: var(--dv-crit); --bg: var(--dv-crit-bg); --ink: var(--dv-crit-ink); }
+.dv-insight.warning { --c: var(--dv-warn); --bg: var(--dv-warn-bg); --ink: var(--dv-warn-ink); }
+.dv-insight.info { --c: var(--dv-info); --bg: var(--dv-info-bg); --ink: var(--dv-info-ink); }
+.dv-insight.good { --c: var(--dv-good); --bg: var(--dv-good-bg); --ink: var(--dv-good-ink); }
+
+/* ---- Quality bars --------------------------------------------------------- */
+.dv-qbar { margin: .45rem 0 .7rem; }
+.dv-qbar-head { display: flex; justify-content: space-between; font-size: .84rem; color: var(--dv-ink-2); font-weight: 600; }
+.dv-qbar-track { height: 8px; background: #efeee9; border-radius: 999px; overflow: hidden; margin-top: .3rem; }
+.dv-qbar-fill { height: 100%; border-radius: 999px; background: var(--c); }
+
+/* ---- Section headings & misc ------------------------------------------------------ */
+.dv-section { display: flex; align-items: baseline; justify-content: space-between; margin: 1.4rem 0 .6rem; gap: 1rem; }
+.dv-section-title { font-size: 1.22rem; font-weight: 750; letter-spacing: -.015em; color: var(--dv-ink); }
+.dv-section-cap { color: var(--dv-muted); font-size: .86rem; }
+
+.dv-empty {
+  text-align: center; padding: 2.4rem 1rem; border: 1.5px dashed #d4d3cc; border-radius: 16px; color: var(--dv-ink-2);
+  background: repeating-linear-gradient(45deg, #fbfbfa, #fbfbfa 12px, #f6f6f3 12px, #f6f6f3 24px);
+}
+.dv-empty b { display: block; font-size: 1.6rem; margin-bottom: .3rem; }
+
+.dv-result {
+  border-radius: 14px; padding: 1rem 1.15rem; border: 1px solid var(--dv-hairline); background: var(--dv-surface);
+  border-left: 5px solid var(--c); box-shadow: var(--dv-shadow); margin: .4rem 0 1rem;
+}
+.dv-result.good { --c: var(--dv-good); } .dv-result.warning { --c: var(--dv-warn); } .dv-result.info { --c: var(--dv-info); } .dv-result.crit { --c: var(--dv-crit); }
+.dv-result-title { font-weight: 750; font-size: 1.02rem; color: var(--dv-ink); }
+.dv-result-text { color: var(--dv-ink-2); margin-top: .25rem; font-size: .9rem; }
+
+.dv-step { display: flex; gap: .6rem; align-items: flex-start; padding: .5rem 0; border-bottom: 1px solid #efeee9; }
+.dv-step-n { width: 22px; height: 22px; flex: none; border-radius: 50%; background: var(--dv-brand-soft); color: var(--dv-brand); font-weight: 750; font-size: .74rem; display: grid; place-items: center; }
+.dv-step-t { font-size: .86rem; color: var(--dv-ink); }
+
+.dv-footer { color: var(--dv-muted); font-size: .78rem; text-align: center; margin-top: 3rem; }
